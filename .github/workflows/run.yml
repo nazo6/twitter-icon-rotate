@@ -39,4 +39,4 @@ jobs:
         echo APP_SECRET=${{ secrets.APP_SECRET }} >> .env
         echo ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }} >> .env
         echo ACCEESS_SECRET=${{ secrets.ACCEESS_SECRET }} >> .env
-        pnpm start ${{ github.event.inputs.angle }}
+        pnpm start -- ${{ github.event.inputs.angle }}
