@@ -2,7 +2,7 @@ import { TwitterApi } from "twitter-api-v2";
 import sharp from "sharp";
 import fetch from "node-fetch";
 import { writeFile } from "fs/promises";
-import path, { parse } from "path";
+import path from "path";
 
 import { config } from "dotenv";
 config();
