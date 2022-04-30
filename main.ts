@@ -2,10 +2,17 @@ import { TwitterApi } from "twitter-api-v2";
 import sharp from "sharp";
 import fetch from "node-fetch";
 import { writeFile } from "fs/promises";
-import path from "path";
+import path, { parse } from "path";
 
 import { config } from "dotenv";
 config();
+
+const opt = process.argv[2] ?? "";
+let angle = 2;
+if (!isNaN(parseInt(opt))) {
+  angle = parseInt(opt);
+}
+console.log("Rotate angle: " + angle);
 
 const main = async () => {
   let twitterApi = new TwitterApi({
@@ -26,7 +33,7 @@ const main = async () => {
   const old_width = (await old_image.metadata()).width!;
   const old_height = (await old_image.metadata()).height!;
 
-  let rotated_image = old_image.rotate(-2);
+  let rotated_image = old_image.rotate(angle);
   let rotated_image_orig = sharp(await rotated_image.toBuffer());
   const new_width = (await rotated_image_orig.metadata()).width!;
   const new_height = (await rotated_image_orig.metadata()).height!;
