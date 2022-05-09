@@ -7,8 +7,8 @@ on:
         required: true
         default: "2"
         description: Angle to rotate
-  schedule:
-    - cron: '0 12 * * *'
+#  schedule:
+#    - cron: '0 12 * * *'
 
 jobs: 
   run: 
